@@ -1,0 +1,110 @@
+<style>
+
+.terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 20px;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 5;
+  }
+
+    .card-container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        margin-top: 16px;
+      }
+    .card {
+        all: unset;
+        border-radius: 4px;
+        border: 1px solid #eee;
+        background-color: #fafafa;
+        height: 40px;
+        width: 200px;
+        margin: 0 8px 16px;
+        padding: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s ease-in-out;
+        line-height: 24px;
+      }
+    .card-container .card:not(.highlight-card) {
+        cursor: pointer;
+      }
+    
+      .card-container .card:not(.highlight-card):hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+      }
+    
+      .card-container .card:not(.highlight-card):hover .material-icons path {
+        fill: rgb(105, 103, 103);
+      }
+      </style>
+   <!-- Terminal -->
+   <div class="terminal" [ngSwitch]="selection.value">
+    <pre *ngSwitchDefault>Bienvenido...! Por favor seleccione el Comic que desea Ver........ </pre>
+    <pre *ngSwitchCase="'comic1'">Usted selecciono ver el Comic 1....... Espere mientras carga por favor</pre>
+    <pre *ngSwitchCase="'comic2'">Usted selecciono ver el Comic 2........  Espere mientras carga por favor</pre>
+    <pre *ngSwitchCase="'comic3'">Usted selecciono ver el Comic 3........ Espere mientras carga por favor</pre>
+
+</div>
+
+  <input type="hidden" #selection>
+
+  <div class="card-container">
+        
+    <button class="card card-small" (click)="selection.value = 'comic1'" tabindex="0">
+        <div class="container">
+            <img class="img-responsive" src="assets/images/marvel.jpeg">
+          </div>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      
+      <span>Comic 1</span>
+    </button>
+
+    <button class="card card-small" (click)="selection.value = 'comic2'" tabindex="0">
+        <div class="container">
+            <img class="img-responsive" src="assets/images/marvel.jpeg">
+          </div>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+     <b><span>Comic 2</span></b> 
+    </button>
+
+    <button class="card card-small" (click)="selection.value = 'comic3'" tabindex="0">
+        <div class="container">
+            <img class="img-responsive" src="assets/images/marvel.jpeg">
+          </div>
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      <span>Comic 3</span>
+    </button>
+</div>
+
